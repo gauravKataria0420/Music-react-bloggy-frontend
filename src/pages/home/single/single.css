@@ -1,0 +1,9 @@
+.single {
+  display: flex;
+  /* background-color: #cdfffc; */
+  /* color: #052055; */
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+}

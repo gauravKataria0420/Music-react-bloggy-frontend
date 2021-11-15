@@ -1,0 +1,59 @@
+.top {
+  width: 100%;
+  height: 50px;
+  position: sticky;
+  top: 0%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: "josifin Sans", sans-serif;
+  z-index: 2;
+}
+.topLeft,
+.topRight {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.TopIcon {
+  font-size: 23px;
+  margin-right: 10px;
+  color: #052055;
+  cursor: pointer;
+}
+.topList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+}
+.topListItem {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  /* font-weight: 550; */
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+}
+.topImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.topCenter {
+  flex: 6;
+}
+.searchIcon {
+  font-size: 18px;
+  color: #052055;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.LogoutButton {
+  /* background: none; */
+  outline: none;
+  border: none;
+}
