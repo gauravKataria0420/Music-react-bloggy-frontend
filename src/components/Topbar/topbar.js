@@ -56,7 +56,7 @@ export default function Topbar({ user }) {
       </div>
       <div className="topRight">
         {user ? (
-          <img className="topImg" src="./image/topImage/2.jpg" alt="" />
+          <img className="topImg" src="./image/topImage/1.jpg" alt="" />
         ) : (
           <ul className="topList">
             <li className="topListItem">
