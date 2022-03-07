@@ -1,0 +1,15 @@
+.bottom-nav {
+  background-color: black;
+}
+.bottom-nav .carousel {
+  height: 30px !important;
+  display: flex;
+  align-items: center;
+}
+.bottom-nav-text {
+  font-size: 12px !important;
+  font-weight: 800;
+  font-family: "Lato", sans-serif;
+  text-decoration: overline;
+  letter-spacing: 1.5px;
+}

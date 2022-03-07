@@ -9,16 +9,31 @@
   font-family: "josifin Sans", sans-serif;
   z-index: 2;
 }
-.topLeft,
-.topRight {
+.topLeft {
   flex: 3;
+  width: 100%;
+
   display: flex;
   align-items: center;
+
+  justify-content: space-around;
+}
+.topRight {
+  flex: 2;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
   justify-content: center;
+}
+.topCenter {
+  flex: 7;
+  width: 100%;
 }
 .TopIcon {
   font-size: 23px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   color: #052055;
   cursor: pointer;
 }
@@ -43,9 +58,7 @@
   border-radius: 50%;
   object-fit: cover;
 }
-.topCenter {
-  flex: 6;
-}
+
 .searchIcon {
   font-size: 18px;
   color: #052055;
@@ -56,4 +69,43 @@
   /* background: none; */
   outline: none;
   border: none;
+}
+
+@media (max-width: 500px) {
+  .top {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 100;
+  }
+
+  .topLeft {
+    padding: 5px 0;
+  }
+  .topLeft {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  .topRight {
+    width: 100%;
+    padding: 5px 0;
+    background-color: #fff;
+    margin-bottom: 10px;
+    flex: 12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topCenter {
+    flex: auto;
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 0;
+  }
+  .searchIcon {
+    display: none;
+  }
 }

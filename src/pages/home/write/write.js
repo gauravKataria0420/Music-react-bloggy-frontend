@@ -3,11 +3,13 @@ import "./write.css";
 const Write = () => {
   return (
     <div className="write">
-      <img
-        src="https://wallpapercave.com/wp/wp6387533.jpg"
-        className="writeImg"
-        alt=""
-      />
+      <div className="write-img-wrapper">
+        <img
+          src="https://wallpapercave.com/wp/wp6387533.jpg"
+          className="writeImg"
+          alt=""
+        />
+      </div>
       <form className="writeForm">
         <div className="writeFormGroup">
           <label htmlFor="fileInput">

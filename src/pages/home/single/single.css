@@ -7,3 +7,14 @@
   margin: auto;
   align-items: center;
 }
+@media (max-width: 500px) {
+  .single {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    margin-top: calc(100%-50px) !important;
+    margin-top: 77px;
+  }
+}

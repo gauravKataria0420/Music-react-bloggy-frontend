@@ -42,7 +42,7 @@ export default function Topbar({ user }) {
           </li>
           <li className="topListItem">
             <Link className="link" to="/post/:postId">
-              Existing-Post
+              Posts
             </Link>
           </li>
           <li className="topListItem">

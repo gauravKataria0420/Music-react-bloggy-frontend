@@ -2,8 +2,8 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="headerTitles">
+    <div className="header container-fluid mt-5">
+      <div className="headerTitles ">
         <span className="headerTitleSm">Frontend with React js</span>
         <span className="headerTitleLg">Music Blogs</span>
       </div>
