@@ -1,10 +1,10 @@
 .setting {
   display: flex;
+  padding: 20px 0;
 }
 .settingWrapper {
   flex: 9;
   padding: 20px 10px;
-  margin-left: 10px;
 }
 .settingTitle {
   display: flex;
@@ -81,11 +81,17 @@
   .setting {
     display: flex;
     flex-direction: column;
+    padding: 50px 0 20px 0;
   }
   .settingWrapper {
     flex: 12;
-
-    padding: 20px 10px;
-    margin-left: 10px;
+    padding: 20px 20px;
+  }
+}
+@media (max-width: 820px) {
+  .setting {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 0 20px 0;
   }
 }

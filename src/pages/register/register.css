@@ -8,7 +8,7 @@
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.3)
     ),
-    url("https://images.pexels.com/photos/3127880/pexels-photo-3127880.jpeg?cs=srgb&dl=pexels-linda-ellershein-3127880.jpg&fm=jpg");
+    url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-johannes-plenio-1103970.jpg&fm=jpg");
   background-size: cover;
 }
 .registerTitle {
@@ -23,6 +23,7 @@
 }
 .registerForm > label {
   margin: 10px 0;
+  font-weight: 500;
 }
 .registerInput {
   padding: 10px;
@@ -45,14 +46,14 @@
   width: 111px;
   margin-top: 12px;
   cursor: pointer;
-  background: lightcoral;
+  background: rgb(5, 80, 80);
   border: none;
   border-radius: 10px;
   color: white;
   padding: 8px 17px;
   font-size: 18px;
   position: absolute;
-  top: 55px;
+  top: 15%;
   right: 20px;
 }
 .registerButton:hover {
@@ -60,6 +61,6 @@
   color: white;
 }
 .registerLoginButton:hover {
-  background-color: rgb(235, 80, 80);
+  background-color: teal;
   color: white;
 }

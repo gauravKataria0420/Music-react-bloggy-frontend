@@ -19,7 +19,7 @@ const App = () => {
         </Route>
         <Route path="/login">{user ? <Home /> : <Login />}</Route>
         <Route path="/register">{user ? <Home /> : <Register />}</Route>
-        <Route path="/write">{<Write />}</Route>
+        <Route path="/write">{user ? <Write /> : <Register />}</Route>
         <Route path="/setting">{user ? <Setting /> : <Register />}</Route>
         <Route path="/post/:postId">
           <Single />

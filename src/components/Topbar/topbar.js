@@ -56,7 +56,11 @@ export default function Topbar({ user }) {
       </div>
       <div className="topRight">
         {user ? (
-          <img className="topImg" src="./image/topImage/1.jpg" alt="" />
+          <img
+            className="topImg"
+            src="https://music-blog-app.herokuapp.com/Image/topImage/1.jpg"
+            alt=""
+          />
         ) : (
           <ul className="topList">
             <li className="topListItem">

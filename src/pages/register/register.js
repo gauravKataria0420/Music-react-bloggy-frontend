@@ -1,15 +1,11 @@
 import "./register.css";
 import { Link } from "react-router-dom";
 
-const Register = ({ setUser }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setUser(true);
-  };
+const Register = () => {
   return (
     <div className="register">
       <span className="registerTitle">Register</span>
-      <form className="registerForm" onSubmit={handleSubmit}>
+      <form className="registerForm">
         <label>Username</label>
         <input
           type="text"
@@ -28,7 +24,7 @@ const Register = ({ setUser }) => {
           className="registerInput"
           placeholder="Enter your Password"
         />
-        <button className="registerButton">Register</button>
+        <button className="loginButton">Register</button>
       </form>
       <button className="registerLoginButton">
         <Link className="link" to="/login">

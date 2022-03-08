@@ -11,9 +11,9 @@ const Sidebar = () => {
           alt="Cannot loaded for anyReason"
         />
         <p className="introduction">
-          Hey! I am Gaurav Kataria and i am a React Doveloper. Basically
-          React.js a comprehensive JavaScript library for building user
-          interfaces.
+          Hey! I am Gaurav Kataria and i am a Frontend Doveloper. And I am
+          pretty much comfortable on React.js Basically React.js a comprehensive
+          JavaScript library for building interactive user interfaces.
         </p>
       </div>
       <div className="sidebarItem">

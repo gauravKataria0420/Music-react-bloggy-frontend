@@ -5,7 +5,7 @@ const Post4 = () => {
     <div className="post">
       <img
         className="postimg"
-        src="./image/topimage/dino2.jpg"
+        src="https://www.lyricsbell.com/wp-content/uploads/2017/12/thanks-a-lot-dino-james.jpg"
         alt="worng pic"
       />
       <div className="postInfo">

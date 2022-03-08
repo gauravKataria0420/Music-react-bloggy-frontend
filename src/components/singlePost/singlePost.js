@@ -5,7 +5,7 @@ const SinglePost = () => {
     <div className="singlePost">
       <div className="singlePostWrapper">
         <img
-          src="../image/sidebarimg/tokyo.jpg"
+          src="https://filmdaily.co/wp-content/uploads/2020/05/lede-tokyo-sucks-1300x731.jpg"
           alt="alt"
           className="singlePostImg"
         />

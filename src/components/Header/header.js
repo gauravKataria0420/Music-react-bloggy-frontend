@@ -7,7 +7,11 @@ const Header = () => {
         <span className="headerTitleSm">Frontend with React js</span>
         <span className="headerTitleLg">Music Blogs</span>
       </div>
-      <img className="headerImg" src="./image/headimg/10.jpg" alt="" />
+      <img
+        className="headerImg"
+        src="https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      />
     </div>
   );
 };

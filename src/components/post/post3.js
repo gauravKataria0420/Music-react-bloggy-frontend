@@ -5,7 +5,7 @@ const Post3 = () => {
     <div className="post">
       <img
         className="postimg"
-        src="./image/topimage/ek-raat.jpg"
+        src="https://static.toiimg.com/photo/msid-65159636/65159636.jpg"
         alt="worng pic"
       />
       <div className="postInfo">

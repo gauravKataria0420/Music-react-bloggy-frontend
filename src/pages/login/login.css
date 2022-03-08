@@ -34,7 +34,7 @@
 .loginButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: rgba(0, 119, 136, 0.5);
+  background-color: teal;
   border: none;
   border-radius: 10px;
   color: white;
@@ -51,7 +51,7 @@
   padding: 8px 17px;
   font-size: 18px;
   position: absolute;
-  top: 55px;
+  top: 15%;
   right: 20px;
 }
 .loginButton:hover {
@@ -59,6 +59,6 @@
   color: white;
 }
 .loginRegisterButton:hover {
-  background-color: rgba(0, 119, 136, 0.5);
+  background-color: teal;
   color: white;
 }
