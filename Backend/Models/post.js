@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
-    Post: {
+    title: {
       type: String,
       required: true,
       unique: true,

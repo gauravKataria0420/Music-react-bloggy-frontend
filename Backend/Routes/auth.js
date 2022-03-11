@@ -15,21 +15,25 @@ router.post("/register", async (req, res) => {
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (err) {
-    res.Status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
 // LOGIN
 router.post("/login", async (req, res) => {
+  // res.status(400).send("Bad request.");
   try {
     const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json("Wrong Credentials !");
+    if (!user) return res.status(400).send("Invalid username and password.");
 
     const validate = await bcrypt.compare(req.body.password, user.password);
-    !validate && res.status(400).json("Wrong Credentials !");
+    if (!validate)
+      return res.status(400).send("Invalid username and password.");
+
     const { password, ...other } = user._doc;
     res.status(200).json(other);
   } catch (err) {
+    // res.send("An unexpected error occured.");
     res.status(500).json(err);
   }
 });
