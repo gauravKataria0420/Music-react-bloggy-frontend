@@ -17,7 +17,7 @@ router.put("/:id", async (req, res) => {
           $set: req.body,
         },
         {
-          new: ture,
+          new: true,
         }
       );
       res.status(200).json(updateUser);
