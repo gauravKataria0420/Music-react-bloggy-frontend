@@ -23,15 +23,18 @@ app.get("/", (req, res) => {
 
 // MULTER PROCESS
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
+  destination: function (req, file, cb) {
+    cb(null, "./images");
   },
-  filename: (req, file, cb) => {
-    cb(null, "Hello.jpeg");
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    console.log(file);
+    cb(null, file.originalname);
   },
 });
 
 const upload = multer({ storage: storage });
+
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("Your file has been submitted");
 });
