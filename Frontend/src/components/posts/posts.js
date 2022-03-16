@@ -1,16 +1,13 @@
 import "./posts.css";
-import Post1 from "../post/post1";
-import Post2 from "../post/post2";
-import Post3 from "../post/post3";
-import Post4 from "../post/post4";
 
-const Posts = () => {
+import Post from "../post/Post";
+
+const Posts = ({ posts }) => {
   return (
     <div className="posts">
-      <Post1 />
-      <Post2 />
-      <Post3 />
-      <Post4 />
+      {posts.map((p) => (
+        <Post post={p} key={p._id} />
+      ))}
     </div>
   );
 };

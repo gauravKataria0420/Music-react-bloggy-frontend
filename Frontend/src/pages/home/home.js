@@ -1,52 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/header";
-import Posts from "../../components/posts/posts";
+import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/sidebar";
 import axios from "axios";
+import { Apikey } from "../../api";
 import "./home.css";
 
 const Home = () => {
-  // const [Post, setPosts] = useState([]);
-
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchPosts = async () => {
-      console.log("data getting true....");
-      let url = "http://localhost:4000/api/post";
       const res = await axios
-        .get(url)
+        .get(Apikey + "/post/")
         .then((responce) => {
-          console.log(responce);
-          console.log("all data get....");
+          setPosts(responce.data);
         })
         .catch((error) => {
           console.log(error);
-          console.log("component mount... but don't get data");
         });
     };
 
     fetchPosts();
-    // console.log(fetchPosts());
   }, []);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/api/post/")
-  //     .then((res) => {
-  //       res.json(res);
-  //       console.log(res);
-  //     })
-  //     .then((post) => {
-  //       setPosts(post);
-  //       console.log(post);
-  //     });
-  // }, []);
-
-  console.log("home running");
-
   return (
     <>
       <Header />
       <div className="home">
-        <Posts />
+        <Posts posts={posts} />
         <Sidebar />
       </div>
     </>
