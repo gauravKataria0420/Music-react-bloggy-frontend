@@ -6,7 +6,7 @@ const Login = () => {
     <div className="login">
       <span className="loginTitle">Login</span>
       <form className="loginForm">
-        <label>Email</label>
+        <label>Username</label>
         <input
           type="text"
           className="loginInput"

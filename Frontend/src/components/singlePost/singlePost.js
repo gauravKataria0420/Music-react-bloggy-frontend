@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./singlePost.css";
 import { Apikey } from "../../api";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const SinglePost = () => {
   const location = useLocation();
@@ -33,10 +34,12 @@ const SinglePost = () => {
         </h1>
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
-            Author: <b>{post.username}</b>
+            Author:
+            <Link to={`/?user=${post.username}`} className="link linkauthor">
+              <b>{post.username}</b>
+            </Link>
           </span>
           <span className="singlePostDate">
-            {" "}
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>

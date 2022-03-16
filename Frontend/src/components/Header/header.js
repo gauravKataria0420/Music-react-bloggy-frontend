@@ -5,7 +5,7 @@ const Header = () => {
     <div className="header container-fluid mt-5">
       <div className="headerTitles ">
         <span className="headerTitleSm">Frontend with React js</span>
-        <span className="headerTitleLg">Music Blogs</span>
+        <span className="headerTitleLg">Tech Blogs</span>
       </div>
       <img
         className="headerImg"

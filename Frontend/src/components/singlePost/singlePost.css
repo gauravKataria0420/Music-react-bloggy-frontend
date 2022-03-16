@@ -57,6 +57,20 @@
   font-size: 30px;
   font-weight: 600;
 }
+.singlePostTitle::first-letter {
+  font-size: 35px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.linkauthor {
+  margin-left: 5px;
+}
+
+.singlePostAuthor {
+  margin-left: 20px;
+  font-weight: 400;
+  text-transform: capitalize !important;
+}
 
 @media (max-width: 820px) {
   .singlePost .singlePostWrapper .singlePostImg {

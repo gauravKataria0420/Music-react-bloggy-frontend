@@ -5,13 +5,16 @@ import Sidebar from "../../components/sidebar/sidebar";
 import axios from "axios";
 import { Apikey } from "../../api";
 import "./home.css";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const { search } = useLocation();
+
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios
-        .get(Apikey + "/post/")
+        .get(Apikey + "/post/" + search)
         .then((responce) => {
           setPosts(responce.data);
         })
@@ -21,7 +24,7 @@ const Home = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [search]);
   return (
     <>
       <Header />

@@ -7,8 +7,9 @@ router.post("/register", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hasshedPassword = await bcrypt.hash(req.body.password, salt);
+    const username = await req.body.username.toLowerCase().replaceAll(" ", "");
     const newUser = new User({
-      username: req.body.username,
+      username: username,
       email: req.body.email,
       password: hasshedPassword,
     });
@@ -34,6 +35,17 @@ router.post("/login", async (req, res) => {
     res.status(200).json(other);
   } catch (err) {
     // res.send("An unexpected error occured.");
+    res.status(500).json(err);
+  }
+});
+
+//Delete
+router.delete("/:id", async (req, res) => {
+  const deluser = await username.findById(req.params.id);
+  try {
+    await deluser.delete();
+    res.status(200).json("Username has been deleted...!");
+  } catch (err) {
     res.status(500).json(err);
   }
 });
