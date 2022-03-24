@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/header";
-import Posts from "../../components/posts/Posts";
+import Posts from "../../components/posts/posts";
 import Sidebar from "../../components/sidebar/sidebar";
 import axios from "axios";
 import { Apikey } from "../../api";

@@ -9,7 +9,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  // console.log(username + email + password);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,26 +28,30 @@ const Register = () => {
     <div className="register">
       <span className="registerTitle">Register</span>
       <form className="registerForm" onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           className="registerInput"
           placeholder="Enter your Username..."
           onChange={(e) => setUsername(e.target.value)}
+          id="username"
         />
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
+
         <input
           type="text"
           className="registerInput"
           placeholder="Enter your Email..."
           onChange={(e) => setEmail(e.target.value)}
+          id="email"
         />
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           className="registerInput"
           placeholder="Enter your Password"
           onChange={(e) => setPassword(e.target.value)}
+          id="password"
         />
         <button className="loginButton" type="submit">
           Register

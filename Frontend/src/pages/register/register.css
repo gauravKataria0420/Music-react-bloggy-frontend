@@ -8,7 +8,7 @@
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.3)
     ),
-    url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-johannes-plenio-1103970.jpg&fm=jpg");
+    url("https://images.pexels.com/photos/1166643/pexels-photo-1166643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
 }
 .registerTitle {
@@ -25,6 +25,7 @@
   margin: 10px 0;
   font-weight: 500;
   border-bottom: 0.5px solid black;
+  cursor: pointer;
   width: fit-content;
 }
 .registerInput {

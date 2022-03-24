@@ -39,6 +39,7 @@ const Sidebar = () => {
                 {c.name}
               </li>
             </Link>
+              
           ))}
         </ul>
       </div>
