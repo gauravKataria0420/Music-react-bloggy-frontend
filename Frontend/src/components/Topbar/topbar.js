@@ -10,6 +10,7 @@ export default function Topbar() {
     dispatch({ type: "LOGOUT" });
     Window.location.replace("/login")
   };
+  console.log(user);
   return (
     <div className="top">
       <div className="topLeft">
@@ -68,7 +69,7 @@ export default function Topbar() {
         {user ? (
           <img
             className="topImg"
-            src="https://music-blog-app.herokuapp.com/Image/topImage/1.jpg"
+            src={user.profilePic}
             alt=""
           />
         ) : (

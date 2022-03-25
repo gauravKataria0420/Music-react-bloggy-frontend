@@ -56,6 +56,7 @@ router.get("/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
     const { password, ...withoutPassword } = user._doc;
     res.status(200).json(withoutPassword);
+    console.log(user);
   } catch (err) {
     res.status(500).json("user not get");
   }
