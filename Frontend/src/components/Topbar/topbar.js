@@ -8,9 +8,9 @@ export default function Topbar() {
   const handleLogout = () => {
     console.log("logout....done");
     dispatch({ type: "LOGOUT" });
-    Window.location.replace("/login")
+    
   };
-  console.log(user);
+  // console.log(user);
   return (
     <div className="top">
       <div className="topLeft">

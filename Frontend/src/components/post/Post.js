@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import "./post.css";
 
 const Post = ({ post }) => {
+  const postPic = "http://localhost:4000/images/";
+  console.log(post);
   return (
-    <div className="post" key={post._id}>
+    <div className="post">
       {post.photo && (
-        <img className="postimg" src={post.photo} alt="worng pic" />
+        <img className="postimg" src={postPic + post.photo} alt="worng pic" />
       )}
-      <div className="postInfo" key={post._id}>
+      <div className="postInfo">
         <div className="postCats">
           {post.categories.map((c) => (
             <span className="postcat" key={post._id}>
@@ -20,9 +22,12 @@ const Post = ({ post }) => {
         </Link>
 
         <hr />
-        <span className="postDate">
-          {new Date(post.createdAt).toDateString()}
-        </span>
+        <div className="date-user">
+          <span className="postDate">{post.username}</span>
+          <span className="postDate">
+            {new Date(post.createdAt).toDateString()}
+          </span>
+        </div>
         <p className="postDecs">{post.decs}</p>
       </div>
     </div>

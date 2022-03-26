@@ -8,10 +8,11 @@ const authRoute = require("./Routes/auth");
 const userRoute = require("./Routes/users");
 const postRoute = require("./Routes/posts");
 const categoryRoute = require("./Routes/categories");
+const path = require("path");
 dotenv.config();
 app.use(express.json());
 app.use(cors());
-
+app.use("/images", express.static(path.join(__dirname, "/images")));
 // MONGO AND MONGOOSE PROCESS
 
 mongoose
@@ -30,7 +31,6 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    console.log(file);
     cb(null, file.originalname);
   },
 });
