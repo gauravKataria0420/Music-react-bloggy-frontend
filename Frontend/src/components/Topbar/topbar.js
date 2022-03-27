@@ -8,7 +8,6 @@ export default function Topbar() {
   const handleLogout = () => {
     console.log("logout....done");
     dispatch({ type: "LOGOUT" });
-    
   };
   // console.log(user);
   return (
@@ -49,11 +48,7 @@ export default function Topbar() {
               Write
             </Link>
           </li>
-          <li className="topListItem">
-            <Link className="link" to="/post/:postId">
-              Posts
-            </Link>
-          </li>
+
           <li className="topListItem">
             <Link className="link" to="/setting">
               Setting
@@ -67,11 +62,9 @@ export default function Topbar() {
       </div>
       <div className="topRight">
         {user ? (
-          <img
-            className="topImg"
-            src={user.profilePic}
-            alt=""
-          />
+          <Link to="/setting">
+            <img className="topImg" src={user.profilePic} alt="" />
+          </Link>
         ) : (
           <ul className="topList">
             <li className="topListItem">

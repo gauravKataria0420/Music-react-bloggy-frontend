@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
+import { postPicApi } from "../../api";
 import "./post.css";
 
 const Post = ({ post }) => {
-  const postPic = "http://localhost:4000/images/";
   console.log(post);
   return (
     <div className="post">
       {post.photo && (
-        <img className="postimg" src={postPic + post.photo} alt="worng pic" />
+        <img
+          className="postimg"
+          src={postPicApi + post.photo}
+          alt="worng pic"
+        />
       )}
       <div className="postInfo">
         <div className="postCats">

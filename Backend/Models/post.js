@@ -10,7 +10,6 @@ const PostSchema = new mongoose.Schema(
     decs: {
       type: String,
       required: true,
-      ycl,
     },
     photo: {
       type: String,
