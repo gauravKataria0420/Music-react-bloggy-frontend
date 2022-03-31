@@ -3,7 +3,6 @@ import { postPicApi } from "../../api";
 import "./post.css";
 
 const Post = ({ post }) => {
-  console.log(post);
   return (
     <div className="post">
       {post.photo && (

@@ -33,6 +33,7 @@ const Register = () => {
           type="text"
           className="registerInput"
           placeholder="Enter your Username..."
+          maxLength={15}
           onChange={(e) => setUsername(e.target.value)}
           id="username"
         />
@@ -48,6 +49,7 @@ const Register = () => {
         <label htmlFor="password">Password</label>
         <input
           type="password"
+          maxLength={6}
           className="registerInput"
           placeholder="Enter your Password"
           onChange={(e) => setPassword(e.target.value)}

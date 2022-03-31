@@ -2,14 +2,13 @@ import "./topbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
+import { postPicApi } from "../../api";
 
 export default function Topbar() {
   const { user, dispatch } = useContext(Context);
   const handleLogout = () => {
-    console.log("logout....done");
     dispatch({ type: "LOGOUT" });
   };
-  // console.log(user);
   return (
     <div className="top">
       <div className="topLeft">
@@ -63,7 +62,7 @@ export default function Topbar() {
       <div className="topRight">
         {user ? (
           <Link to="/setting">
-            <img className="topImg" src={user.profilePic} alt="" />
+            <img className="topImg" src={postPicApi + user.profilePic} alt="" />
           </Link>
         ) : (
           <ul className="topList">

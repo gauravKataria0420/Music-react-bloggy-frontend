@@ -35,6 +35,15 @@ const Login = () => {
           id="username"
           ref={userRef}
         />
+        <span
+          style={{
+            color: "green",
+            textAlign: "start",
+            marginTop: "5px",
+          }}
+        >
+          Enter your username lower case
+        </span>
         <label htmlFor="password">Password</label>
         <input
           type="password"
