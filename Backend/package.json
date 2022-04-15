@@ -14,7 +14,7 @@
   "description": "This is Music blog application ",
   "main": "App.js",
   "scripts": {
-    "start": "nodemon App.js"
+    "start": "node App.js"
   },
   "author": "Gaurav Kataria",
   "license": "ISC"
