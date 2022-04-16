@@ -11,10 +11,10 @@
   },
   "name": "musicblog",
   "version": "1.0.0",
-  "description": "This is Music blog application ",
-  "main": "App.js",
+  "description": "This is Music blog application",
+  "main": "index.js",
   "scripts": {
-    "start": "node App.js"
+    "start": "node index.js"
   },
   "author": "Gaurav Kataria",
   "license": "ISC"
