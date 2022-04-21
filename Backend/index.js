@@ -1,54 +1,52 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
-const multer = require("multer");
 const cors = require("cors");
+const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const homeRoute = require("./Routes/Home");
-const authRoute = require("./Routes/auth");
-const userRoute = require("./Routes/users");
-const postRoute = require("./Routes/posts");
-const categoryRoute = require("./Routes/categories");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+const postRoute = require("./routes/posts");
+const homeRoute = require("./routes/home");
+const categoryRoute = require("./routes/categories");
+const multer = require("multer");
 const path = require("path");
-dotenv.config();
 
-// MiddleWare
 app.use(cors());
+dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-// MONGO AND MONGOOSE PROCESS
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(console.log("connected to MongoDB"))
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: true,
+  })
+  .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-// MULTER PROCESS
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./images");
+  destination: (req, file, cb) => {
+    cb(null, "images");
   },
-  filename: function (req, file, cb) {
-    // const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.originalname);
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
   },
 });
 
 const upload = multer({ storage: storage });
-
 app.post("/api/upload", upload.single("file"), (req, res) => {
-  res.status(200).json("Your file has been submitted");
+  res.status(200).json("File has been uploaded");
 });
 
-// USING ROUTE
 app.use("/", homeRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/post", postRoute);
 app.use("/api/categories", categoryRoute);
 
-// LISTENING SERVER
-const port = process.env.PORT || 4000;
-app.listen(port, () => {
-  console.log(`Backend is Runing on ${port}...`);
+const Port = process.env.PORT || 5000;
+app.listen(Port, () => {
+  console.log(`Backend is running ${Port}...`);
 });

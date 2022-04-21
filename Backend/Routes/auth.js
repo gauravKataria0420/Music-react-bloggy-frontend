@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const User = require("../Models/user");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-// REGISTER
+//REGISTER
 router.post("/register", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hasshedPassword = await bcrypt.hash(req.body.password, salt);
-    const username = await req.body.username.toLowerCase().replaceAll(" ", "");
+    const hashedPass = await bcrypt.hash(req.body.password, salt);
     const newUser = new User({
-      username: username,
+      username: req.body.username,
       email: req.body.email,
-      password: hasshedPassword,
+      password: hashedPass,
     });
+
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (err) {
@@ -20,31 +20,17 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// LOGIN
+//LOGIN
 router.post("/login", async (req, res) => {
-  // res.status(400).send("Bad request.");
   try {
     const user = await User.findOne({ username: req.body.username });
-    if (!user) return res.status(400).send("Invalid username and password.");
+    !user && res.status(400).json("Wrong credentials!");
 
-    const validate = await bcrypt.compare(req.body.password, user.password);
-    if (!validate)
-      return res.status(400).send("Invalid username and password.");
+    const validated = await bcrypt.compare(req.body.password, user.password);
+    !validated && res.status(400).json("Wrong credentials!");
 
-    const { password, ...other } = user._doc;
-    res.status(200).json(other);
-  } catch (err) {
-    // res.send("An unexpected error occured.");
-    res.status(500).json(err);
-  }
-});
-
-//Delete
-router.delete("/:id", async (req, res) => {
-  const deluser = await username.findById(req.params.id);
-  try {
-    await deluser.delete();
-    res.status(200).json("Username has been deleted...!");
+    const { password, ...others } = user._doc;
+    res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);
   }
