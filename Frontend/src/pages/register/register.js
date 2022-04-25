@@ -3,24 +3,37 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { Apikey } from "../../api";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [inpending, setIspending] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
+    setIspending(true);
     try {
       const res = await axios.post(Apikey + "/auth/register", {
         username,
         email,
         password,
       });
+
+      await setIspending(false);
+      toast.success("Register successfully.", {
+        autoClose: 1000,
+        theme: "dark",
+      });
       res.data && window.location.replace("/login");
     } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong", {
+        theme: "dark",
+      });
       setError(true);
     }
   };
@@ -55,7 +68,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           id="password"
         />
-        <button className="loginButton" type="submit">
+        <button className="loginButton" type="submit" disabled={inpending}>
           Register
         </button>
       </form>

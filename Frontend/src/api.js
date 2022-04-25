@@ -1,2 +1,2 @@
-export const Apikey = "http://localhost:4000/api";
-export const postPicApi = "http://localhost:4000/images/";
+export const Apikey = "https://bloggy-backend-app.herokuapp.com/api";
+export const postPicApi = "https://bloggy-backend-app.herokuapp.com/images/";

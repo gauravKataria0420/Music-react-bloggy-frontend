@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../context/Context";
 import { postPicApi } from "../../api";
+import { toast } from "react-toastify";
 
 export default function Topbar() {
   const { user, dispatch } = useContext(Context);
   const handleLogout = () => {
+    toast.success("Logout successfully.", {
+      autoClose: 1200,
+      theme: "dark",
+    });
     dispatch({ type: "LOGOUT" });
   };
   return (
@@ -20,7 +25,7 @@ export default function Topbar() {
           <i className="TopIcon fab fa-facebook-square"></i>
         </a>
         <a
-          href="https://github.com/gauravKataria0420"
+          href="https://github.com/gauravKataria21"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -33,7 +38,14 @@ export default function Topbar() {
         >
           <i className="TopIcon fab fa-instagram"></i>
         </a>
-        <i className="TopIcon fab fa-twitter-square"></i>
+        <a
+          href="https://www.linkedin.com/in/itsgauravkatariaa
+"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class=" TopIcon fab fa-linkedin"></i>
+        </a>
       </div>
       <div className="topCenter">
         <ul className="topList">

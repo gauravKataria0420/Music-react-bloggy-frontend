@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useRef } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { Apikey } from "../../api";
 
 const Login = () => {
@@ -17,8 +18,14 @@ const Login = () => {
         username: userRef.current.value,
         password: passRef.current.value,
       });
+      toast.success("Login successfully.", {
+        autoClose: 1200,
+      });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
+      toast.error("Invalid username and password.", {
+        autoClose: 1200,
+      });
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };

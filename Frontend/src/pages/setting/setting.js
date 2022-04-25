@@ -1,16 +1,17 @@
-import Sidebar from "../../components/sidebar/sidebar";
+// import Sidebar from "../../components/sidebar/sidebar";
 import "./setting.css";
 import { Context } from "../../context/Context";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { Apikey, postPicApi } from "../../api";
+import { toast } from "react-toastify";
 
 const Setting = () => {
   const [file, setFile] = useState(null);
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const { user, dispatch } = useContext(Context);
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -37,20 +38,22 @@ const Setting = () => {
     try {
       const res = await axios.put(Apikey + "/users/" + user._id, updatedUser);
       setSuccess(true);
-      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-      console.log(user);
+      await toast.success("Profile updated successfully.", {
+        autoClose: 1200,
+      });
+      await dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+      // window.location.replace("/");
     } catch (err) {
       dispatch({ type: "UPDATE_FAILURE" });
     }
-    console.log(user);
   };
+
   return (
     <>
       <div className="setting">
         <div className="settingWrapper">
           <div className="settingTitle">
             <span className="settingUpdateTitle">Update your Account</span>
-            <span className="settingDeleteTitle">Delete Account</span>
           </div>
 
           <form className="settingForm" onSubmit={handleSubmit}>
@@ -79,13 +82,15 @@ const Setting = () => {
             <label>Username</label>
             <input
               type="text"
+              value={username}
               placeholder={user.username}
               onChange={(e) => setUsername(e.target.value)}
             />
             <label>Email</label>
 
             <input
-              type="email "
+              type="email"
+              value={email}
               placeholder={user.email}
               onChange={(e) => setEmail(e.target.value)}
             />

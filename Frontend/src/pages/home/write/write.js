@@ -3,19 +3,22 @@ import { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import { Apikey } from "../../../api";
 import "./write.css";
+import { toast } from "react-toastify";
 
 const Write = () => {
   const [title, setTitle] = useState("");
-  const [decs, setDecs] = useState("");
+  const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
+  const [disable, setDisable] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDisable(true);
     const newPost = {
       username: user.username,
       title,
-      decs,
+      desc,
     };
     console.log("handler works");
     if (file) {
@@ -27,6 +30,9 @@ const Write = () => {
       try {
         await axios.post(Apikey + "/upload", data);
       } catch (err) {
+        toast.error("Post cannot uploaded...", {
+          autoClose: 1200,
+        });
         console.log("file error " + err);
       }
     } else {
@@ -34,7 +40,13 @@ const Write = () => {
     }
     try {
       const res = await axios.post(Apikey + "/post/", newPost);
-      window.location.replace("/post/" + res.data._id);
+      toast.info("Post successfully uploaded...", {
+        autoClose: 1600,
+      });
+      await setDisable(false);
+      setTimeout(() => {
+        window.location.replace("/post/" + res.data._id);
+      }, 2000);
     } catch (err) {
       console.log("new post error " + err);
     }
@@ -74,10 +86,10 @@ const Write = () => {
             placeholder="Tell your Story...."
             id=""
             className="writeInput writeText"
-            onChange={(e) => setDecs(e.target.value)}
+            onChange={(e) => setDesc(e.target.value)}
           ></textarea>
         </div>
-        <button className="writeSubmit" type="submit">
+        <button className="writeSubmit" type="submit" disabled={disable}>
           Publish
         </button>
       </form>

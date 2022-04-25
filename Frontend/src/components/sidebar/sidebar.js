@@ -35,11 +35,8 @@ const Sidebar = () => {
         <ul className="sidebarList">
           {cats.map((c) => (
             <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
-              <li className="sidebarListItem">
-                {c.name}
-              </li>
+              <li className="sidebarListItem">{c.name}</li>
             </Link>
-             
           ))}
         </ul>
       </div>
@@ -54,7 +51,7 @@ const Sidebar = () => {
             <i className="sidebarIcon fab fa-facebook-square"></i>
           </a>
           <a
-            href="https://github.com/gauravKataria0420"
+            href="https://github.com/gauravKataria21"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -67,7 +64,13 @@ const Sidebar = () => {
           >
             <i className="sidebarIcon fab fa-instagram"></i>
           </a>
-          <i className="sidebarIcon fab fa-twitter-square"></i>
+          <a
+            href="https://www.linkedin.com/in/itsgauravkatariaa/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="sidebarIcon fab fa-linkedin"></i>
+          </a>
         </div>
       </div>
     </div>

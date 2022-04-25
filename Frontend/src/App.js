@@ -8,12 +8,15 @@ import Write from "./pages/home/write/write";
 import Setting from "./pages/setting/setting";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Context } from "./context/Context";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { user } = useContext(Context);
   // const user = false
   return (
     <Router>
+      <ToastContainer />
       <Topbar />
       <Switch>
         <Route exact path="/">

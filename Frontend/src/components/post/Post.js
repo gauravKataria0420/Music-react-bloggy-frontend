@@ -31,7 +31,7 @@ const Post = ({ post }) => {
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
-        <p className="postDecs">{post.decs}</p>
+        <p className="postDecs">{post.desc}</p>
       </div>
     </div>
   );

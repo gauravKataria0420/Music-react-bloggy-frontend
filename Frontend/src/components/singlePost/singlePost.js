@@ -5,25 +5,29 @@ import { Apikey, postPicApi } from "../../api";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
+import { toast } from "react-toastify";
 
 const SinglePost = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
-  const [decs, setDecs] = useState("");
+  const [desc, setDesc] = useState("");
   const [updateMode, setupdateMode] = useState(false);
   const { user } = useContext(Context);
+
+  console.log(post);
 
   const updateHandler = async () => {
     try {
       await axios.put(Apikey + `/post/${post._id}`, {
         username: user.username,
         title,
-        decs,
+        desc,
       });
-      console.log("post updated");
-      console.log(post);
+      toast.info("Post updated successfully...", {
+        autoClose: 1600,
+      });
       setupdateMode(false);
     } catch (err) {
       console.log(err);
@@ -35,7 +39,7 @@ const SinglePost = () => {
       const res = await axios.get(Apikey + "/post/" + path);
       setPost(res.data);
       setTitle(res.data.title);
-      setDecs(res.data.decs);
+      setDesc(res.data.desc);
     };
     getPost();
   }, [path]);
@@ -47,7 +51,7 @@ const SinglePost = () => {
           username: user.username,
         },
       });
-      console.log("post deleted");
+
       window.location.replace("/");
     } catch (err) {
       console.log(err);
@@ -106,11 +110,11 @@ const SinglePost = () => {
           <textarea
             type="text"
             className="singlePostDecsInput"
-            value={decs}
-            onChange={(e) => setDecs(e.target.value)}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
           ></textarea>
         ) : (
-          <p className="singlePostDecs">{decs}</p>
+          <p className="singlePostDecs">{desc}</p>
         )}
         {updateMode && (
           <button className="updateModeButton" onClick={updateHandler}>
