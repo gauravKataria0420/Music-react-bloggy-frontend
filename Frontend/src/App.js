@@ -13,7 +13,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { user } = useContext(Context);
-  // const user = false
   return (
     <Router>
       <ToastContainer />
